@@ -1,0 +1,143 @@
+# ==========================================
+# PYTHON & DJANGO
+# ==========================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.egg
+*.manifest
+*.spec
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+*.env
+.env.*
+env.example
+pip-wheel-metadata/
+pip-log.txt
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+node_modules/
+.DS_Store
+
+# Secret / config files (critical)
+.env
+.env.*
+secrets.json
+*.secret
+*.key
+*.pem
+*.crt
+*.cert
+*.pfx
+*.p12
+*.der
+*.jks
+*.p7b
+
+# Local settings & overrides
+local_settings.py
+settings_local.py
+*_local.py
+*_secrets.py
+
+# ==========================================
+# CELERY / REDIS
+# ==========================================
+celerybeat-schedule
+celerybeat.pid
+
+# ==========================================
+# DATABASE & BACKUPS
+# ==========================================
+*.db
+*.sqlite3
+*.sql
+*.backup
+*.bak
+dump.rdb
+
+# ==========================================
+# COMPILED FILES & BUILD ARTIFACTS
+# ==========================================
+*.so
+build/
+dist/
+.eggs/
+*.whl
+
+# ==========================================
+# IDE / EDITOR FILES
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.swn
+*.sublime-workspace
+*.sublime-project
+
+# ==========================================
+# TESTING & COVERAGE
+# ==========================================
+.coverage
+htmlcov/
+.tox/
+nosetests.xml
+coverage.xml
+pytest_cache/
+.pytest_cache/
+test-results/
+
+# ==========================================
+# DOCKER / CONTAINERS
+# ==========================================
+# Local Docker files that may contain secrets
+docker-compose.override.yml
+docker-compose.local.yml
+docker-compose.*.yml
+.devcontainer/
+.docker/
+*.pid
+*.sock
+
+# ==========================================
+# NGINX / CERTBOT / SSL
+# ==========================================
+nginx/conf.d/*.conf
+nginx/ssl/
+certbot/
+letsencrypt/
+*.csr
+
+# ==========================================
+# MISC & TEMPORARY FILES
+# ==========================================
+*.tmp
+*.temp
+*.log
+*.bak
+*.orig
+*.rej
+*.sw?
+*~
+
+# ==========================================
+# SYSTEM FILES
+# ==========================================
+Thumbs.db
+ehthumbs.db
+Icon?
