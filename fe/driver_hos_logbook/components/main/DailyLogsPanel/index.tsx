@@ -3,10 +3,8 @@ import { EmptyState } from "./EmptyState";
 import { DayLog } from "./DayLog";
 import { Accordion } from "@/components/ui/accordion";
 
-export function DailyLogsPanel({ trip, isLoading, isNotFound }: DailyLogsPanelProps) {
+export function DailyLogsPanel({ trip, isNotFound }: DailyLogsPanelProps) {
     const logs = trip?.daily_logs ?? [];
-
-    if (isLoading) return null;
 
     if (isNotFound) {
         return <EmptyState />;

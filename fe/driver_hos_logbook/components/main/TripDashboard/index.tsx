@@ -65,12 +65,11 @@ export function TripDashboard({ initialTrips, initialTripDetail, selectedTripId 
                 </section>
             </div>
 
-            {initialTripDetail && (
+            {(initialTripDetail && !isPending) && (
                 <section className="pt-8 border-t border-neutral-100">
                     <h2 className="text-sm font-bold mb-8 text-neutral-500 text-center">Daily Log Sheets (HOS Compliance)</h2>
                     <DailyLogsPanel
                         trip={initialTripDetail}
-                        isLoading={isPending}
                         isNotFound={isNotFound}
                     />
                 </section>
