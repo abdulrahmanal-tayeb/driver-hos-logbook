@@ -1,7 +1,5 @@
-const apiBase =
-  process.env.API_BASE_URL ??
-  process.env.NEXT_PUBLIC_API_BASE_URL ??
-  "http://localhost:8000";
+const apiBase = process.env.BACKEND_BASE_URL ?? "http://localhost:8000";
+const apiPrefix = process.env.BACKEND_PREFIX ?? "/api/v1/";
 
 type ApiOptions = Omit<RequestInit, "headers"> & {
   headers?: HeadersInit;
@@ -16,7 +14,14 @@ export async function apiFetch<TResponse>(
     ...(options.headers ?? {}),
   };
 
-  const res = await fetch(`${apiBase}${path}`, {
+  // Ensure apiBase doesn't end with slash, apiPrefix starts and ends with slash, and path doesn't start with slash
+  const cleanBase = apiBase.endsWith('/') ? apiBase.slice(0, -1) : apiBase;
+  const cleanPrefix = apiPrefix.startsWith('/') ? apiPrefix : `/${apiPrefix}`;
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+
+  const fullUrl = `${cleanBase}${cleanPrefix}${cleanPath}`;
+
+  const res = await fetch(fullUrl, {
     ...options,
     headers,
   });

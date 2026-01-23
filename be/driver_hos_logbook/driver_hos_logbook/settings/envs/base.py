@@ -10,7 +10,10 @@ class Base(configurations.Configuration):
     
     SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", get_random_secret_key())
     DEBUG = values.BooleanValue(True)
-    ALLOWED_HOSTS = values.ListValue(['*'])
+    ALLOWED_HOSTS = values.ListValue(os.environ.get('ALLOWED_HOSTS', '*').split(','))
+
+    STATIC_URL = '/static/'
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
 
     INSTALLED_APPS = [
         'django.contrib.admin',
@@ -20,6 +23,7 @@ class Base(configurations.Configuration):
         'django.contrib.messages',
         'rest_framework',
         'corsheaders',
+        'drf_spectacular',
         'driver_hos_logbook.apps.driver_hos_logbook',
     ]
 
@@ -66,6 +70,14 @@ class Base(configurations.Configuration):
         'DEFAULT_RENDERER_CLASSES': [
             'rest_framework.renderers.JSONRenderer',
         ],
+        'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    }
+
+    SPECTACULAR_SETTINGS = {
+        'TITLE': 'Driver HOS Logbook API',
+        'DESCRIPTION': 'API for HOS-compliant smart routing and ELD logbook generation.',
+        'VERSION': '1.0.0',
+        'SERVE_INCLUDE_SCHEMA': False,
     }
 
     CORS_ALLOW_ALL_ORIGINS = True

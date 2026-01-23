@@ -20,6 +20,8 @@ class TripViewSet(viewsets.ModelViewSet):
             return TripListSerializer
         if self.action == 'retrieve':
             return TripDetailSerializer
+        if self.action == 'calculate':
+            return TripInputSerializer
         return TripListSerializer
 
     @action(
@@ -27,7 +29,6 @@ class TripViewSet(viewsets.ModelViewSet):
         url_path='calculate',
         url_name='calculate',
         methods=['post'],
-        serializer_class=TripInputSerializer
     )
     def calculate(self, request):
         """

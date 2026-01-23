@@ -10,6 +10,11 @@
 
 ---
 
+> [!NOTE]
+> The hosted version of this application may experience delays (30-60 seconds) on initial requests due to **cold starts** on the free hosting plan.
+
+---
+
 ## 🌟 Key Features
 
 - **Smart Routing Engine**: Calculates optimal routes using OSRM, integrated with real-world geocoding.
@@ -68,18 +73,10 @@ A modern, premium UI/UX experience:
 
 ## 📊 API Documentation
 
-### **Calculate Route**
-- **Endpoint**: `POST /api/v1/logbook/trips/calculate/`
-- **Payload**:
-  ```json
-  {
-    "current_location": "Los Angeles, CA",
-    "pickup_location": "Phoenix, AZ",
-    "dropoff_location": "Dallas, TX",
-    "current_cycle_used": 10.5
-  }
-  ```
-- **Response**: Returns a detailed `Trip` object including calculated segments, HOS stops, and generated log sheet data.
+The backend is fully documented with **OpenAPI 3.0** schemas. You can access the interactive documentation at the following endpoints:
+- **Swagger UI**: `/api/docs/`
+- **ReDoc**: `/api/redoc/`
+- **OpenAPI Schema**: `/api/schema/`
 
 ---
 
